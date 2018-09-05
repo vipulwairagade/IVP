@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the image into an array: image
-image = plt.imread('Images/skeleton.tif')
+image = plt.imread('skeleton.tif')
 
 # Flatten the image into 1 dimension: pixels
 pixels = image.flatten()
@@ -16,11 +16,11 @@ new_pixels = np.interp(pixels, bins[:-1], cdf*255)
 new_image = new_pixels.reshape(image.shape)
 
 # Display the new image with 'gray' color map
-plt.subplot(2,1,1)
+#plt.subplot(2,1,1)
 plt.title('Equalized image')
-plt.axis('off')
+#plt.axis('off')
 plt.imshow(new_image, cmap='gray')
-
+'''
 # Generate a histogram of the new pixels
 plt.subplot(2,1,2)
 pdf = plt.hist(new_pixels, bins=64, range=(0,256), normed=False,
@@ -38,5 +38,5 @@ plt.title('PDF & CDF (equalized image)')
 # Generate a cumulative histogram of the new pixels
 cdf = plt.hist(new_pixels, bins=64, range=(0,256),
                cumulative=True, normed=True,
-               color='blue', alpha=0.4)
+               color='blue', alpha=0.4) '''
 plt.show()
